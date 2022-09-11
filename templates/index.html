@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Your one-stop for all things note{% endblock title%}
+
+{% block content %}
+<section class="d-flex justify-around">
+<div class="card">
+    <p>Folders</p>
+    <ul>
+        {% for folder in folders %}
+        <li> <a href="/folders/{{folder.id}}">{{ folder.title }} </a> </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="card">
+    <p>Notes</p>
+<ul>
+    {% for note in notes %}
+    <li> <a href="/notes/{{note.id}}"> {{ note.title }} </a> </li>
+    {% endfor %}
+</ul>
+
+
+</div>
+
+</section>
+{% endblock content %}

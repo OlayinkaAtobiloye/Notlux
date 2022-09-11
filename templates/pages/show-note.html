@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section style="display: flex; justify-content: center">
+<div class="card">
+    <label>Title</label>
+    <input disabled value="{{note.title}}" />
+
+    <label>Description</label>
+   <input value="{{note.description}}" disabled/>
+
+    <label>
+        Folder
+    </label>
+    <input disabled value="{{note.folder}}" />
+
+    <div style="display: flex; justify-content: center">
+    <button><a href="/notes/{{note.id}}/edit">Edit Note</a></button>
+    <form action="/notes/{{note.id}}/delete" method="post">
+    <button type="submit">Delete Note</button>
+    </form>
+    </div>
+
+</div>
+</section>
+
+{% endblock content %}

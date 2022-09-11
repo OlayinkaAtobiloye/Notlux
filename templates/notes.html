@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}All Notes{% endblock title%}
+
+{% block content %}
+
+<section style="display: flex; justify-content: center">
+<div class="card">
+    <p>Notes</p>
+    <ul>
+        {% for note in notes %}
+
+        <li>
+<a href="/notes/{{ note.id }}">{{ note.title }}</a>
+
+        </li>
+
+        {% endfor %}
+    </ul>
+</div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Add Folder{% endblock title%}
+{% block content %}
+
+<form action="/folders" method="post">
+    {{ form.csrf_token }}
+
+    <div>
+        <label>
+            Title
+        </label>
+        {{ form.title() }}
+    </div>
+
+
+    <div>
+        <label>
+            Description
+        </label>
+        {{ form.description() }}
+    </div>
+
+
+    <button type="submit">Create Folder</button>
+</form>
+
+{% endblock content %}
+

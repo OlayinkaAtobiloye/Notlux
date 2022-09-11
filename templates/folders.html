@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}All Folders{% endblock title%}
+
+{% block content %}
+
+<section style="display: flex; justify-content: center">
+<div class="card">
+    <p>Folders</p>
+    <ul>
+        {% for folder in folders %}
+
+        <li>
+<a href="/folders/{{folder.id}}">
+            {{ folder.title }}
+</a>
+        </li>
+
+        {% endfor %}
+    </ul>
+</div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section style="display: flex; justify-content: center">
+    <div class="card">
+        <label>Title</label>
+        <input disabled value="{{folder.title}}"/>
+
+        <label>Description</label>
+        <input value="{{folder.description}}" disabled/>
+
+        <div>
+            <label>Notes</label>
+            <ul>
+
+                {% for note in folder.notes%}
+                <li>
+                    <a href="/notes/{{ note.id }}">
+                        {{ note.title }}
+                    </a>
+                </li>
+                {% endfor %}
+
+            </ul>
+
+        </div>
+
+        {% if folder.id != 0 %}
+        <div style="display: flex; justify-content: center">
+            <button><a href="/folders/{{folder.id}}/edit">Edit Folder</a></button>
+            <form action="/folders/{{folder.id}}/delete" method="post">
+                <button>Delete Folder</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+
+</section>
+
+{% endblock content %}

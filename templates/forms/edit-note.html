@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Note{% endblock title%}
+
+{% block content %}
+
+<form action="/notes/{{note.id}}/edit" method="post">
+  {{ form.csrf_token }}
+
+  <div>
+    <label>
+      Title
+    </label>
+    {{ form.title(value=note.title) }}
+  </div>
+
+  <div>
+    <label>
+      Description
+    </label>
+    {{ form.description(default=note.description, defaultValue=note.description) }}
+  </div>
+
+  <div>
+    <label>
+      Folder
+    </label>
+    {{ form.folder_id(value=note.folder_id) }}
+  </div>
+
+  <button type="submit">Update Note</button>
+</form>
+
+{% endblock content %}
+

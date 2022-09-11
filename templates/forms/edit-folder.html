@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Folder{% endblock title%}
+
+{% block content %}
+
+<form action="/folders/{{folder.id}}/edit" method="post">
+
+  {{ form.csrf_token }}
+
+  <div>
+    <label>
+      Title
+    </label>
+    {{ form.title(value=folder.title) }}
+  </div>
+
+
+  <div>
+    <label>
+      Description
+    </label>
+    {{ form.description(value=folder.description) }}
+  </div>
+
+  <button type="submit">Update Folder</button>
+</form>
+
+{% endblock content %}
+

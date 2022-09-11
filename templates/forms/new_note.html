@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Add Note{% endblock title %}
+
+{% block content %}
+<form action="/notes" method="post">
+    {{ form.csrf_token }}
+
+    <div>
+        <label>
+            Title
+        </label>
+        {{ form.title() }}
+    </div>
+
+    <div>
+        <label>
+            Description
+        </label>
+        {{ form.description() }}
+    </div>
+
+    <div>
+        <label>
+            Folder
+        </label>
+        {{ form.folder_id() }}
+    </div>
+
+    <button type="submit">Save Note</button>
+</form>
+
+{% endblock content %}
+
